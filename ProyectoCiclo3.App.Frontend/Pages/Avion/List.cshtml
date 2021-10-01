@@ -1,35 +1,33 @@
 @page
+@model ProyectoCiclo3.App.Frontend.Pages.ListAvionModel
 @{
 }
  
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>Twitter</td>
-      </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>Facebook</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry the Bird</td>
-      <td>Arias</td>
-      <td>Instagram</td>
-    </tr>
-  </tbody>
+<h1>Listado de Aviones</h1>
+<table class="table">
+    <thead>
+        <th>Id</th>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Numero de asiento</th>
+        <th>Numero de baños</th>
+        <th>Capacidad maxima</th>
+    </thead>
+    @foreach (var avion in Model.Aviones)
+    {
+        <tr>
+            <td>@Avion.id</td>
+            <td>@Avion.marca</td>
+            <td>@Avion.modelo</td>
+            <td>@Avion.numero_asientos</td>
+            <td>@Avion.numero_baños</td>
+            <td>@Avion.capacidad_maxima</td>
+            <td>
+              <a class="btn btn-info" asp-page="./Details" asp-route-avionId="@avion.id"><i class="fas fa-adjust"></i>Ver</a>
+              <a class="btn btn-info" asp-page="./Edit" asp-route-avionId="@avion.id">Editar</a>
+              <a class="btn btn-danger" href="">Eliminar</a>
+              </td>
+        </tr>
+    }
 </table>
 
