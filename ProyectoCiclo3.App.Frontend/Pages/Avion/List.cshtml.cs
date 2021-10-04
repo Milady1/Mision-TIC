@@ -6,16 +6,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProyectoCiclo3.App.Persistencia.AppRepositorios;
 using ProyectoCiclo3.App.Dominio;
-
+ 
 namespace ProyectoCiclo3.App.Frontend.Pages
 {
     public class ListAvionModel : PageModel
     {
        
         private readonly RepositorioAviones repositorioAviones;
-        public IEnumerable<Aviones> Avion {get;set;}
+        public IEnumerable<Aviones> Aviones {get;set;}
+        [BindProperty]
+        public Aviones avion {get;set;}
 
-public ListAvionModel(RepositorioAviones repositorioAviones)
+ 
+    public ListAvionModel(RepositorioAviones repositorioAviones)
     {
         this.repositorioAviones=repositorioAviones;
      }
@@ -23,6 +26,15 @@ public ListAvionModel(RepositorioAviones repositorioAviones)
     public void OnGet()
     {
         Aviones=repositorioAviones.GetAll();
-      }
+    }
+    public IActionResult OnPost()
+    {
+        if(Avion.id>0)
+        {
+        repositorioAviones.Delete(Avion.id);
+        }
+        return RedirectToPage("./List");
+    }
+
     }
 }

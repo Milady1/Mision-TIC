@@ -19,10 +19,8 @@ namespace ProyectoCiclo3.App.Frontend.Pages
        {
             this.repositorioAviones=repositorioAviones;
        }
-    }
-    {
-        
-    }
+ 
+        public IActionResult OnGet(int avionId)
         {
             Avion=repositorioAviones.GetAvionWithId(avionId);
             return Page(); 
