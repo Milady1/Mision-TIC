@@ -19,25 +19,14 @@ namespace ProyectoCiclo3.App.Frontend.Pages
        {
             this.repositorioAviones=repositorioAviones;
        }
-    }
-    {
-        
-    }
-        {
-            Avion=repositorioAviones.GetAvionWithId(avionId);
-            return Page(); 
-        }
 
-        public IActionResult OnPost()
+          public IActionResult OnPost()
         {
             if(!ModelState.IsValid)
             {
                 return Page();
-            }
-            if(Avion.id>0)
-            {
-            Avion = repositorioAviones.Update(Avion);
-            }
+            }            
+            Avion = repositorioAviones.Create(Avion);
             return RedirectToPage("./List");
         }
     }

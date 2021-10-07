@@ -4,21 +4,18 @@
     var avion = Model.Avion;
 }
 
-
- <div class="text-center">
-  <form method="POST"> //informacion oculto
-    <label for="id" class="form-label">Id:</label>
-    <input type="text" class="form-control" id="id" placeholder="Id" asp-for="@avion.id"required> //indica validacion de los campos obligatorios a agregar
+<div class="text-center">
+  <form method="POST">
     <label for="marca" class="form-label">Marca:</label>
-    <input type="text" class="form-control" id="marca" placeholder="Marca" asp-for="@avion.Marca"require>
+    <input type="text" class="form-control" id="marca" placeholder="Marca" asp-for="@avion.marca" required minlength="3">//indica validacion de los campos obligatorios a agregar
     <label for="modelo" class="form-label">Modelo:</label>
-    <input type="number" class="form-control" id="modelo"  placeholder="Modelo" asp-for="@avion.Modelo"require>
+    <input type="number" class="form-control" id="modelo" placeholder="Modelo" asp-for="@avion.modelo" required>
     <label for="numero_asientos" class="form-label">Numeros de asientos: </label>
-    <input type="number" class="form-control" id="numero_asientos"  placeholder="Numero asientos" asp-for="@avion.numero_asientos"require>
-    <label for="numero_baños" class="form-label">Numero de baños:</label>
-    <input type="number" class="form-control" id="numero_baños"  placeholder="Numero baños" asp-for="@avion.numero_baños"require>
+    <input type="number" class="form-control" id="numero_asientos" placeholder="Numero asientos" asp-for="@avion.numero_asientos" required>
+    <label for="numero_banos" class="form-label">Numero de baños:</label>
+    <input type="number" class="form-control" id="numero_baños" placeholder="Numero baños" asp-for="@avion.numero_baños" required>
     <label for="capacidad_maxima" class="form-label">Capacidad maxima:</label>
-    <input type="number" class="form-control" id="capacidad_maxima"  placeholder="Capacidad maxima" asp-for="@avion.Capacidad_maxima"require>
+    <input type="number" class="form-control" id="capacidad_maxima" placeholder="Capacidad maxima" asp-for="@avion.capacidad_maxima" required>
     <hr>
     <button type="submit" class="btn btn-success">Enviar</button>
   </form>
