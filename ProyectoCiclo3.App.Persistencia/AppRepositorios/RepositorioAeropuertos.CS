@@ -24,7 +24,7 @@ namespace ProyectoCiclo3.App.Persistencia.AppRepositorios
     {
         var addAeropuerto = _appContext.Aeropuertos.Add(newAeropuerto);
         _appContext.SaveChanges();
-        return addAeopuerto.Entity;
+        return addAeropuerto.Entity;
     }
 
     public void Delete(int id)
@@ -39,9 +39,12 @@ namespace ProyectoCiclo3.App.Persistencia.AppRepositorios
     public Aeropuertos Update(Aeropuertos newAeropuerto){
         var aeropuerto = _appContext.Aeropuertos.Find(newAeropuerto.id);
         if(aeropuerto != null){
-                new Aeropuertos {id=1,Nombre="Catama",Ciudad="Medellin",Pais="Colombia",Coor_x= 5,Coor_y= 8},
-                new Aeropuertos {id=2,Nombre="Dorado",Ciudad="Bogota",Pais="Colombia",Coor_x= 4,Coor_y= 10},
-                new Aeropuertos {id=3,Nombre="Gaitan",Ciudad="Pasto" ,Pais="Colombia",Coor_x= 4, Coor_y= 12}
+                aeropuerto.id = newAeropuerto.id;
+                aeropuerto.Nombre = newAeropuerto.Nombre;
+                aeropuerto.Ciudad= newAeropuerto.Ciudad;
+                aeropuerto.Pais = newAeropuerto.Pais;
+                aeropuerto.Coor_x = newAeropuerto.Coor_x;
+                aeropuerto.Coor_y= newAeropuerto.Coor_y;
             //Guardar o almacena la informacion en base de datos
             _appContext.SaveChanges();
         }
@@ -49,5 +52,4 @@ namespace ProyectoCiclo3.App.Persistencia.AppRepositorios
         }
     }
 }
-}
-
+    

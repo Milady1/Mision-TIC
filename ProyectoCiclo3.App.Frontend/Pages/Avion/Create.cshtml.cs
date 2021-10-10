@@ -9,18 +9,18 @@ using ProyectoCiclo3.App.Dominio;
  
 namespace ProyectoCiclo3.App.Frontend.Pages
 {
-    public class EditAvionModel : PageModel
+    public class FormAvionModel : PageModel
     {
         private readonly RepositorioAviones repositorioAviones;
         [BindProperty]
         public Aviones Avion {get;set;}
  
-        public EditAvionModel(RepositorioAviones repositorioAviones)
+        public FormAvionModel(RepositorioAviones repositorioAviones)
        {
             this.repositorioAviones=repositorioAviones;
        }
 
-          public IActionResult OnPost()
+        public IActionResult OnPost()
         {
             if(!ModelState.IsValid)
             {
